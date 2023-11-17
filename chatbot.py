@@ -5,8 +5,7 @@ from llama_index import SimpleDirectoryReader
 import streamlit as st
 import openai
 
-openai.api_key = "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"
-
+openai.api_key = "sk-"
 def app():
     st.title("Upadpro AI/ML Developer Task, ChatBot")
     st.header("Chat with the uploaded Document, powered by LlamaIndex 💬🦙")
