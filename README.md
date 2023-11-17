@@ -26,6 +26,7 @@ https://github.com/Sarthak-1408/SunBase-Assignment-Solution/assets/72247049/03db
 - **urlinput.py**: Implements the Streamlit app for URL input, text extraction from URLs, and interaction with the chatbot.
 
 - **app.py**: Orchestrates the multi-app structure, allowing users to choose between PDF, URL, and ChatBot functionalities.
+- **Data**: Contain Sample pdf files for pdfinput.py
 
 ## Instructions
 
