@@ -38,16 +38,21 @@ class PDFTextExtractor:
         return text
 
     def save_text_to_file(self, text):
-        if self.pdf_path:
-            # Extract the base name without path and extension
-            pdf_name = os.path.splitext(os.path.basename(self.pdf_path))[0]
-        else:
-            pdf_name = "extracted_data"
+        # Extract the base name without path and extension
+        pdf_name = os.path.splitext(os.path.basename(self.pdf_path))[0] if self.pdf_path else "extracted_data"
 
         # Save the extracted text to a text file with the same base name
         txt_path = f"Knowledge/{pdf_name}.txt"
 
         try:
+            # Create "Knowledge" folder if it doesn't exist
+            knowledge_folder = "Knowledge"
+            if not os.path.exists(knowledge_folder):
+                os.makedirs(knowledge_folder)
+                print(f"Created '{knowledge_folder}' folder.")
+            else:
+                print(f"'{knowledge_folder}' folder already exists.")
+
             with open(txt_path, 'w', encoding='utf-8') as txt_file:
                 txt_file.write(text)
             print(f"Extracted text saved to: {txt_path}")
