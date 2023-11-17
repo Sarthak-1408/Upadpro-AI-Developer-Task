@@ -33,13 +33,22 @@ def app():
                     # Save the parsed text to a text file with the same base name
                     txt_path = f"Knowledge/{url_base_name}_parsed.txt"
 
+                    # Create "Knowledge" folder if it doesn't exist
+                    knowledge_folder = "Knowledge"
+                    if not os.path.exists(knowledge_folder):
+                        os.makedirs(knowledge_folder)
+                        print(f"Created '{knowledge_folder}' folder.")
+                    else:
+                        print(f"'{knowledge_folder}' folder already exists.")
+
                     with open(txt_path, 'w', encoding='utf-8') as txt_file:
                         txt_file.write(parsed_text)
-                    
+
                     st.success("Text is Extracted, Now you can use the ChatBot")
 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
+
 
 # Sample Data
 # https://towardsdatascience.com/type-hinting-dataframes-for-static-analysis-and-runtime-validation-3dedd2df481d
